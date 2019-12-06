@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import axios from "axios";
+import "./App.css";
+import Dark from "./dark";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    players: []
+    // playerText: ""
+  };
+
+  componentDidMount() {
+    console.log("cDM");
+    axios.get("http://localhost:5000/api/players").then(response => {
+      this.setState({ players: response.data });
+      console.log(response.data);
+    });
+  }
+
+  fetchPlayers = e => {
+    e.preventDefault();
+    axios.get(`http://localhost:5000/api/players`).then(response => {
+      // console.log(response);
+      this.setState({ players: response.data });
+    });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Dark />
+        <h1>Players List</h1>
+        <button onClick={this.fetchplayers}>Fetch players</button>
+        <div className="players">
+          {this.state.players.map(player => (
+            <div className="pDiv" key={player.name}>
+              <h2>{player.name}</h2>
+              <h4>{player.country}</h4>
+              <h6>{player.searches} searches</h6>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
+
+const rootElement = document.getElementById("root");
 
 export default App;

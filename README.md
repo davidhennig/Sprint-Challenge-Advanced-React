@@ -23,9 +23,20 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit the `ANSWERS.md` file to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Why would you use class component over function components (removing hooks from the question)?
+
+A functional component will be written in plain Javascript, while a class component will have the added benefits that come with React. This means being able to use state and setState.
+
 - [ ] Name three lifecycle methods and their purposes.
+
+The three lifecycle methods of react are Mounting, Updating and Unmounting. These three phases see the full cycle of a component from start to finish. The Mounting phase sees that the component is built and rendered to the page, this implements componentDidMount. The next phase is Updating, where the component has the ability to update and change state, implementing shouldComponentUpdate. The last phase is the Unmounting cycle where the actions of the Mounting phase are undone and the component is removed from the page, utilizing the componentWillUnmount call.
+
 - [ ] What is the purpose of a custom hook?
+
+Having a custom hook is a useful way to set unique names to stateful logic.
+
 - [ ] Why is it important to test our apps?
+
+There is no possible way to notice every single possible bug in your code before you deploy it. It is far too vast of a project and the bugs have the potential to be either very miniscule or something much larger. Having tests in the app helps to alleviate the pressure of finding bugs by having a quick program search for them. While this is not a perfect method as you will need to tell it what to search for, and you might not be able to think of everything you need to search for, it is still a very powerful tool.
 
 ## Project Set Up
 
@@ -44,7 +55,7 @@ Follow these steps to set up and work on your project:
 
 Follow these steps for completing your project:
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
 - [ ] Add your Project Manager as a Reviewer on the Pull-request.
 - [ ] PM then will count the HW as done by merging the branch back into master.
 
@@ -52,8 +63,8 @@ Follow these steps for completing your project:
 
 Your finished project must include all of the following requirements:
 
-- [ ] Class component that fetches data from the server you now have running - the data can be fetched from `http://localhost:5000/api/players`
-- [ ] Display the player data you receive from the API
+- [x] Class component that fetches data from the server you now have running - the data can be fetched from `http://localhost:5000/api/players`
+- [x] Display the player data you receive from the API
 - [ ] Build a custom hook and use it in your app - this can be a localStorage hook, a fetch hook, a dark mode hook, or any other hook you would like
 - [ ] Write a "reasonable" amount of unit tests for your React components. What does "reasonable amount" mean? That is up to you to decide. Be ready to defend your choice to your TL 👍
 
